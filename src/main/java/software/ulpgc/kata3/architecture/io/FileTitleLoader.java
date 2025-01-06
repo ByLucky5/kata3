@@ -21,7 +21,7 @@ public class FileTitleLoader implements TitleLoader {
 
     @Override
     public List<Title> load() throws IOException {
-        List<Title> titles = new ArrayList<Title>();
+        List<Title> titles = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             reader.readLine();
             while (true) {

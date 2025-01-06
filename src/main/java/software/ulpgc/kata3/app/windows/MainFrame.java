@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class MainFrame extends javax.swing.JFrame {
     private final Map<String, Command> commands;
-    private JFreeChartDisplay display;
+    private final JFreeChartDisplay display;
 
     public MainFrame() {
         this.setTitle("Kata3");
@@ -24,8 +24,9 @@ public class MainFrame extends javax.swing.JFrame {
         commands = new HashMap<>();
     }
 
-    public Command put(String key, Command value) {
-        return commands.put(key, value);
+    public MainFrame put(String key, Command value) {
+        commands.put(key, value);
+        return this;
     }
 
     public JFreeChartDisplay getDisplay() {
@@ -40,9 +41,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private Component toggle() {
         JButton button = new JButton("Toggle");
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {commands.get("toggle").execute();}
-        });
+        button.addActionListener(e -> commands.get("toggle").execute());
         return button;
     }
 }
